@@ -6,6 +6,8 @@ whenToUse: The user asks to check/operate their phone (看手机屏幕、打开�
 
 # Phone Control (Android via ADB)
 
+Open-source repo: https://github.com/wxh1783921374-xiaofeng/phone-control-mcp
+
 Drive a real Android phone with the `phone-control` CLI (zero third-party dependencies).
 
 ## Entry point
