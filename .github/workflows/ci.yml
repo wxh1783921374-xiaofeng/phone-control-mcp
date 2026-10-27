@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  smoke:
+    name: Smoke test (no device needed)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python-version: "3.10"
+          - os: ubuntu-latest
+            python-version: "3.13"
+          - os: windows-latest
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install MCP SDK
+        run: python -m pip install --upgrade pip && pip install "mcp>=1.2"
+
+      - name: Syntax check
+        run: python -m py_compile phone_control.py server.py test_mcp.py benchmark.py
+
+      - name: CLI help works
+        run: python phone_control.py --help
+
+      - name: MCP end-to-end smoke test
+        run: python test_mcp.py

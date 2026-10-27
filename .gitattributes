@@ -1,0 +1,15 @@
+# 统一换行符，避免跨平台 diff 噪音
+* text=auto
+
+*.py   text eol=lf
+*.md   text eol=lf
+*.toml text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+
+*.ps1  text eol=crlf
+*.bat  text eol=crlf
+
+*.png binary
+*.jpg binary
+*.apk binary

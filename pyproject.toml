@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phone-control-mcp"
+version = "1.1.0"
+description = "Control your Android phone from any AI agent — an MCP server plus a zero-dependency CLI, built on ADB"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "phone-control-mcp contributors" }]
+keywords = [
+  "android",
+  "adb",
+  "mcp",
+  "model-context-protocol",
+  "automation",
+  "ai-agent",
+  "phone-control",
+  "claude",
+  "codex",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.2"]
+
+[project.scripts]
+phone-control = "phone_control:main"
+phone-control-mcp = "server:main"
+
+[project.urls]
+Homepage = "https://github.com/wxh1783921374-xiaofeng/phone-control-mcp"
+Issues = "https://github.com/wxh1783921374-xiaofeng/phone-control-mcp/issues"
+
+[tool.setuptools]
+py-modules = ["phone_control", "server"]
